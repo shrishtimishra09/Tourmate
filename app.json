@@ -1,0 +1,34 @@
+{
+  "expo": {
+    "name": "Your Travel Mate",
+    "slug": "Your Travel mate",
+    "extra": {
+      "googlePlacesApiKey": "AIzaSyDfa3NVsBgI4_HK-bZG6i-AcA2GtHYl83U"
+      
+    },
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/touurmate.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/touurmate.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#a6c7fb"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#a6c7fb"
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-font"
+    ]
+  }
+}
