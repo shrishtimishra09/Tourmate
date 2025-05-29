@@ -14,7 +14,7 @@ export default function ProfileScreen() {
         if (!user) return;
 
         const uid = user.uid;
-        setUid(uid); // Set UID to state for display
+        setUid(uid);
         const docRef = doc(db, "users", uid);
         const docSnap = await getDoc(docRef);
 
@@ -26,7 +26,7 @@ export default function ProfileScreen() {
             joinedAt: data.joinedAt || new Date().toISOString(),
           });
         } else {
-          // Fallback to auth fields only
+          
           setUserData({
             username: user.displayName || "N/A",
             email: user.email || "N/A",

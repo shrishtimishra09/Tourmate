@@ -5,8 +5,8 @@ import { useFonts, RubikDirt_400Regular } from '@expo-google-fonts/rubik-dirt';
 import * as SplashScreen from 'expo-splash-screen';
 import { Image } from 'expo-image';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
-import { auth, db } from './firebaseConfig'; // ✅ Include db
-import { doc, setDoc, serverTimestamp } from 'firebase/firestore'; // ✅ Firestore tools
+import { auth, db } from './firebaseConfig'; 
+import { doc, setDoc, serverTimestamp } from 'firebase/firestore'; 
 
 export default function SignupScreen({ navigation }) {
   const [name, setName] = useState('');

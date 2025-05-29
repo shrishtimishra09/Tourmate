@@ -14,7 +14,7 @@ import {
 import axios from 'axios';
 
 const HotelsScreen = ({ route, navigation }) => {
-  const { location } = route.params; // Receiving location from App.js
+  const { location } = route.params;
   const [hotels, setHotels] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -23,7 +23,7 @@ const HotelsScreen = ({ route, navigation }) => {
   const fetchNearbyHotels = async (lat, lon) => {
     setLoading(true);
     try {
-      const apiKey = 'AIzaSyDfa3NVsBgI4_HK-bZG6i-AcA2GtHYl83U'; // Replace with your API key
+      const apiKey = 'AIzaSyDfa3NVsBgI4_HK-bZG6i-AcA2GtHYl83U'; 
       const radius = 7000;
       const type = 'lodging';
 

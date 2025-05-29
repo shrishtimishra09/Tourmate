@@ -5,7 +5,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 export default function AboutScreen() {
   return (
     <ImageBackground
-      source={require('../assets/bggg.png')} // optional background image
+      source={require('../assets/bggg.png')} 
       style={styles.background}
     >
       <LinearGradient

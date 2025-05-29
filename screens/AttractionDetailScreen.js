@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, ScrollView, Image, ImageBackground, ActivityIndicator, StyleSheet, Button, Linking } from 'react-native';
 import axios from 'axios';
-import { Ionicons } from '@expo/vector-icons'; // Import star icon
+import { Ionicons } from '@expo/vector-icons';
 
 const AttractionDetailScreen = ({ route }) => {
-  const { placeId } = route.params; // Retrieve place ID from navigation parameters
+  const { placeId } = route.params; 
   const [attractionDetails, setAttractionDetails] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -13,10 +13,10 @@ const AttractionDetailScreen = ({ route }) => {
     fetchAttractionDetails(placeId);
   }, [placeId]);
 
-  // Fetch detailed information for the attraction
+  
   const fetchAttractionDetails = async (id) => {
     try {
-      const apiKey = 'AIzaSyDfa3NVsBgI4_HK-bZG6i-AcA2GtHYl83U'; // Replace with your actual API key
+      const apiKey = 'AIzaSyDfa3NVsBgI4_HK-bZG6i-AcA2GtHYl83U'; 
       const response = await axios.get(
         `https://maps.googleapis.com/maps/api/place/details/json?place_id=${id}&fields=name,formatted_address,formatted_phone_number,opening_hours,rating,photos,types,geometry&key=${apiKey}`
       );
@@ -68,7 +68,7 @@ const AttractionDetailScreen = ({ route }) => {
       <ScrollView style={styles.container}>
         {attractionDetails && (
           <>
-            {/* Display attraction image */}
+            {}
             {attractionDetails.photos && attractionDetails.photos.length > 0 ? (
               <Image
                 source={{
@@ -80,7 +80,7 @@ const AttractionDetailScreen = ({ route }) => {
               <Text style={styles.noImageText}>No image available</Text>
             )}
 
-            {/* Display attraction name with rating in heart container */}
+            {}
             <View style={styles.nameRatingContainer}>
               <Text style={styles.name}>{attractionDetails.name}</Text>
               {attractionDetails.rating && (
@@ -91,14 +91,14 @@ const AttractionDetailScreen = ({ route }) => {
               )}
             </View>
 
-            {/* Display phone number */}
+            {}
             {attractionDetails.formatted_phone_number ? (
               <Text style={styles.phone}>Phone: {attractionDetails.formatted_phone_number}</Text>
             ) : (
               <Text style={styles.phone}>Phone number not available</Text>
             )}
 
-            {/* Display types */}
+            {}
             {attractionDetails.types ? (
               <Text style={styles.cuisine}>
                 Type: {attractionDetails.types.join(', ')}
@@ -107,13 +107,13 @@ const AttractionDetailScreen = ({ route }) => {
               <Text style={styles.cuisine}>Type information not available</Text>
             )}
 
-            {/* Address container */}
+            {}
             <View style={styles.addressContainer}>
               <Text style={styles.addressTitle}>Address:</Text>
               <Text style={styles.address}>{attractionDetails.formatted_address}</Text>
             </View>
 
-            {/* Display opening hours */}
+            {}
             {attractionDetails.opening_hours ? (
               <Text style={styles.hours}>
                 {attractionDetails.opening_hours.open_now ? 'Open Now' : 'Closed'}
@@ -122,7 +122,7 @@ const AttractionDetailScreen = ({ route }) => {
               <Text style={styles.hours}>Hours not available</Text>
             )}
 
-            {/* Street View Button */}
+            {}
             <View style={styles.streetViewButtonContainer}>
               <Button title="Street View" onPress={openStreetView} color="#6C91BF" />
             </View>
@@ -137,11 +137,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-    backgroundColor: 'transparent', // Make the container transparent to show the background
+    backgroundColor: 'transparent', 
   },
   backgroundImage: {
     flex: 1,
-    resizeMode: 'cover', // Adjust to cover the entire screen
+    resizeMode: 'cover', 
   },
   loader: {
     flex: 1,
@@ -176,7 +176,7 @@ const styles = StyleSheet.create({
   heartContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#6C91BF', // Heart color
+    backgroundColor: '#6C91BF', 
     borderRadius: 20,
     paddingHorizontal: 8,
     paddingVertical: 4,
@@ -189,7 +189,7 @@ const styles = StyleSheet.create({
   },
   phone: {
     fontSize: 18,
-    fontWeight: 'bold', // Bold font for contact number
+    fontWeight: 'bold', 
     marginTop: 8,
   },
   cuisine: {

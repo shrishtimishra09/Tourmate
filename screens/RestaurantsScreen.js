@@ -3,18 +3,16 @@ import { View, Text, Button, FlatList, StyleSheet, ActivityIndicator, Image } fr
 import axios from 'axios';
 
 const RestaurantsScreen = ({ route, navigation }) => {
-  const { location } = route.params; // Receiving location from App.js
+  const { location } = route.params; 
   const [restaurants, setRestaurants] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-
-  // Function to fetch nearby restaurants from Google Places API
   const fetchNearbyRestaurants = async (lat, lon) => {
     setLoading(true);
     try {
-      const apiKey = 'AIzaSyDfa3NVsBgI4_HK-bZG6i-AcA2GtHYl83U'; //  API key
-      const radius = 7000; // Search within 1 km
-      const types = 'restaurant'; // Only restaurants
+      const apiKey = 'AIzaSyDfa3NVsBgI4_HK-bZG6i-AcA2GtHYl83U';
+      const radius = 7000; 
+      const types = 'restaurant'; 
 
       const response = await axios.get(
         `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lon}&radius=${radius}&type=${types}&key=${apiKey}`

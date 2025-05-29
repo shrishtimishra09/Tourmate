@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, ScrollView, Image, ImageBackground, ActivityIndicator, StyleSheet, Button, Linking } from 'react-native';
 import axios from 'axios';
-import { Ionicons } from '@expo/vector-icons'; // Import star icon
+import { Ionicons } from '@expo/vector-icons'; 
 
 const RestaurantDetailScreen = ({ route }) => {
-  const { placeId } = route.params; // Retrieve place ID from navigation parameters
+  const { placeId } = route.params; 
   const [restaurantDetails, setRestaurantDetails] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -12,11 +12,9 @@ const RestaurantDetailScreen = ({ route }) => {
   useEffect(() => {
     fetchRestaurantDetails(placeId);
   }, [placeId]);
-
-  // Fetch detailed information for the restaurant
   const fetchRestaurantDetails = async (id) => {
     try {
-      const apiKey = 'AIzaSyDfa3NVsBgI4_HK-bZG6i-AcA2GtHYl83U'; // Replace with your actual API key
+      const apiKey = 'AIzaSyDfa3NVsBgI4_HK-bZG6i-AcA2GtHYl83U'; 
       const response = await axios.get(
         `https://maps.googleapis.com/maps/api/place/details/json?place_id=${id}&fields=name,formatted_address,formatted_phone_number,opening_hours,rating,photos,types,geometry&key=${apiKey}`
       );
@@ -33,8 +31,6 @@ const RestaurantDetailScreen = ({ route }) => {
       setLoading(false);
     }
   };
-
-  // Function to open Street View
   const openStreetView = () => {
     if (restaurantDetails?.geometry) {
       const { lat, lng } = restaurantDetails.geometry.location;
@@ -44,8 +40,6 @@ const RestaurantDetailScreen = ({ route }) => {
       alert('Location coordinates not available');
     }
   };
-
-  // Loading indicator
   if (loading) {
     return (
       <View style={styles.loader}>
@@ -54,7 +48,6 @@ const RestaurantDetailScreen = ({ route }) => {
     );
   }
 
-  // Error handling
   if (error) {
     return (
       <View style={styles.container}>
@@ -137,11 +130,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-    backgroundColor: 'transparent', // Make the container transparent to show the background
+    backgroundColor: 'transparent', 
   },
   backgroundImage: {
     flex: 1,
-    resizeMode: 'cover', // Adjust to cover the entire screen
+    resizeMode: 'cover', 
   },
   loader: {
     flex: 1,
@@ -176,7 +169,7 @@ const styles = StyleSheet.create({
   heartContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#6C91BF', // Heart color
+    backgroundColor: '#6C91BF',
     borderRadius: 20,
     paddingHorizontal: 8,
     paddingVertical: 4,
@@ -189,7 +182,7 @@ const styles = StyleSheet.create({
   },
   phone: {
     fontSize: 18,
-    fontWeight: 'bold', // Bold font for contact number
+    fontWeight: 'bold', 
     marginTop: 8,
   },
   cuisine: {

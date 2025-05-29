@@ -1,18 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, ScrollView, Image, ImageBackground, ActivityIndicator, StyleSheet, Button, Linking } from 'react-native';
 import axios from 'axios';
-import { Ionicons } from '@expo/vector-icons'; // Import star icon
-
+import { Ionicons } from '@expo/vector-icons';
 const HotelDetailScreen = ({ route }) => {
   const { placeId } = route.params;
   const [hotelDetails, setHotelDetails] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
   useEffect(() => {
     fetchHotelDetails(placeId);
   }, [placeId]);
-
   const fetchHotelDetails = async (id) => {
     try {
       const apiKey = 'AIzaSyDfa3NVsBgI4_HK-bZG6i-AcA2GtHYl83U';

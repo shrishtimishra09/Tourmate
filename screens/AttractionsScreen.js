@@ -1,22 +1,18 @@
-// screens/AttractionsScreen.js
-
 import React, { useState, useEffect } from 'react';
 import { View, Text, Button, FlatList, StyleSheet, ActivityIndicator, Image } from 'react-native';
 import axios from 'axios';
 
 const AttractionsScreen = ({ route, navigation }) => {
-  const { location } = route.params; // Receiving location from App.js
+  const { location } = route.params; 
   const [attractions, setAttractions] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-
-  // Function to fetch nearby attractions from Google Places API
   const fetchNearbyAttractions = async (lat, lon) => {
     setLoading(true);
     try {
-      const apiKey = 'AIzaSyDfa3NVsBgI4_HK-bZG6i-AcA2GtHYl83U'; // Replace with your API key
-      const radius = 7000; // Search within 1 km
-      const types = 'tourist_attraction'; // Only tourist attractions
+      const apiKey = 'AIzaSyDfa3NVsBgI4_HK-bZG6i-AcA2GtHYl83U'; 
+      const radius = 7000; 
+      const types = 'tourist_attraction';
 
       const response = await axios.get(
         `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lon}&radius=${radius}&type=${types}&key=${apiKey}`
